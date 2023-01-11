@@ -7,9 +7,26 @@
     <title>Your goals</title>
 
     <style>
+        body {
+            margin: 0;
+        }
+
         #layout {
             display: flex;
             flex-direction: column;
+        }
+
+        #top-bar {
+            display: flex;
+           align-items: center;
+           justify-content: right;
+            background-color: aquamarine;
+            padding: 0px 10px;
+            gap: 10px;
+        }
+
+        #page-title {
+            flex-grow: 1;
         }
 
         #container {
@@ -17,13 +34,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            white-space: no;
             overflow-y: scroll;
             gap: 10px;
             height: 500px;
             width: 70%;
             min-width: 500px;
-            margin: 10%;            
+            margin: 10%;
         }
 
         .goal {
@@ -32,7 +48,7 @@
             border: 1px solid gray;
             display: flex;
             flex-direction: column;
-            justify-content: space between;
+            justify-content: space-around;
         }
         
         
@@ -40,9 +56,17 @@
 </head>
 <body>
    <div id="layout">
-        <div id="top bar">
-            <div id="page title">
+        <div id="top-bar">
+            <div id="page-title">
                 <h1>Your Goals</h1>
+            </div>
+
+            <div id="sign-in-link">
+                <a href="sign in.html">sign in</a>
+            </div>
+            
+            <div id="sing-up-link">
+                <a href="sign up.html">sign up</a>
             </div>
         </div>
 
