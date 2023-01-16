@@ -4,67 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="createGoal.css">
+
 </head>
 <body>
+    <div id="layout">
+        <div id="top-bar">
+            <div id="page-title">
+                <h1>Create a new goal</h1>
+            </div>
 
-<hr size = "3">
-<h2>Create a new goal</h2>
-<p>Here you will create a new goal you want to achieve. <br>
-    To do this we will make use of the <i>SMART criteria </i> which stands for: <br>
-    <i>Specific, Measurable, Assignable, Realistic, Time-related.</i>  </p>  
-<p>Please fill in the form below:</p>  
-<form action="">
-        <b><label for="">The name of your goal: </label>
+            <div id="sign-in-link">
+                <a href="sign in.html">sign in</a>
+            </div>
+            
+            <div id="sing-up-link">
+                <a href="sign up.html">sign up</a>
+            </div>
+        </div>
+    <div id="container">
+        <center>
+        <p>Here you will create a new goal you want to achieve. <br>
+            To do this we will make use of the <i>SMART criteria </i> which stands for: <br>
+            <i>Specific, Measurable, Assignable, Realistic, Time-related.</i>  </p>  
+        <p>Please fill in the form below:</p>  
+        <form action="">
+                <b><label for="">The name of your goal: </label>
+                    <br>
+                    <input type="text" name ="name"></b>
             <br>
-            <input type="text" name ="name"></b>
-    <br>
-    <br>
-        <b><label for=""><i>Specific</i> : Which specific area 
-            do you want to improve in?</label>
             <br>
-            <input type="text" name ="area"></b>
-    <br>
-    <br>
-        <b><label for=""><i>Measurable</i>: How can we see the progress?  
-            </label>
+                <b><label for=""><i>Specific</i> : Which specific area 
+                    do you want to improve in?</label>
+                    <br>
+                    <input type="text" name ="area"></b>
             <br>
-            <input type="text" name ="progress"></b>
-    <br>
-    <br>
-        <b><label for=""><i>Assignable</i>: Who should achieve 
-            this goal?</label>
             <br>
-            <input type="text" name ="achiever"></b>
-    <br>
-    <br>
-        <b><label for=""><i>Realistic</i>: What result do 
-            you realitically expect?</label>
+                <b><label for=""><i>Measurable</i>: How can we see the progress?  
+                    </label>
+                    <br>
+                    <input type="text" name ="progress"></b>
             <br>
-            <input type="text" name ="result"></b>
-    <br>
-    <br>
-        <b><label for=""><i>Time-related</i>: When can the results 
-            be achieved?</label>
             <br>
-            <input type="text" name ="name"></b>
-    <br>
-    <br>
-        <b><label for="">Due-date of your goal:</label>
+                <b><label for=""><i>Assignable</i>: Who should achieve 
+                    this goal?</label>
+                    <br>
+                    <input type="text" name ="achiever"></b>
             <br>
-            <input type="text" name ="name"></b> 
-    <br>
-    <br>
-    <br>
-        <input type="submit" value="Submit">
-    <br> 
-    <hr>
-    <a href="createTargets.html">
-        Set targets to achieve your goal</a> 
-    <br>
-    <br>
-
+            <br>
+                <b><label for=""><i>Realistic</i>: What result do 
+                    you realitically expect?</label>
+                    <br>
+                    <input type="text" name ="result"></b>
+            <br>
+            <br>
+                <b><label for=""><i>Time-related</i>: When can the results 
+                    be achieved?</label>
+                    <br>
+                    <input type="text" name ="name"></b>
+            <br>
+            <br>
+                <b><label for="">Due-date of your goal:</label>
+                    <br>
+                    <input type="text" name ="name"></b> 
+            <br>
+        
+            <br>
+                <input type="submit" value="Submit">
+            <br> 
+            <br>
+            <b><p>Now it is time to set targets for your goals: </p></b>
+                <a href="createTargets.html">
+                    Set targets to achieve your goal</a>
+                    <br>
+                    <br>
     
-</form>
+        </form> 
+        </center>
+    </div>
+
+</div>
 
 <hr size = "3">
 </body>
