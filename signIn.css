@@ -27,3 +27,11 @@ body {
     flex-grow: 1;
 }
 
+#formIn {
+    text-align: center;
+    margin: 5px;
+}
+
+.item {
+    margin: 5px;
+}
