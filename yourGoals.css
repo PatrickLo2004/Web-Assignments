@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+}
+
+#layout {
+    display: flex;
+    flex-direction: column;
+}
+
+#top-bar {
+    display: flex;
+    align-items: center;
+    background-color: aquamarine;
+    padding: 0px 10px;
+    gap: 10px;
+}
+
+#page-title {
+    flex-grow: 1;
+}
+
+#container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    height: 500px;
+    width: 70%;
+    min-width: 500px;
+    margin: 10%;
+}
+
+.goal {
+    background-color: rgb(236, 236, 236);
+    width: 90%;
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.name-and-date {
+    display: flex;
+    justify-content: space-between;
+}
+
