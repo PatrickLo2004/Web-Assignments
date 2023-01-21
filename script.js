@@ -48,7 +48,6 @@ form.addEventListener('submit', (e) => {
     if(!password.Any(char.isLower)){
         messages.push('Password must contain a lowercase letter')
     }
-    //dictionary check
 
     if(messages.length > 0){
         e.preventDefault()
