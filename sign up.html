@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup form</title> 
     <link rel="stylesheet" href="sign up.css">
+    <script defer src = "script.js"></script>
 
 </head>
 <body>
+
+    <div id = "error"></div>
+
     <div id="layout">
         <div id="top-bar">
             <div id="title"><h1>Sign Up</h1></div>
@@ -24,52 +28,82 @@
         
         
         <div id="container">
-            <form id="form_up">
+            <form id="form_up" action = "/" method="GET">
                 <div id="form-grid">
                     <div class="grid-item">
                         <label for="name">Full name:</label> <br>
-                        <input type="text" name="name" id="name">
+                        <input type="text" name="name" id="name" 
+                        placeholder="e.g: Duncan Hill" required>
                     </div>  
 
                     <div class="grid-item">
-                        <label for="age">Age:</label> <br>
-                        <input type="text" name="age" id="age">  
+                        <label for="userID">User ID:</label> <br>
+                        <input type="text" name="userID" id="userID" 
+                        placeholder="e.g Ducc321" required>  
                     </div>
 
                     <div class="grid-item">
                         <div>
-                            <label for="Gender">Gender:</label> 
+                            <label for="gender">Gender:</label> 
                         </div>
                         <div>
-                            <input type="radio" name="gender" id="male"> male
+                            <input type="radio" name="gender" value = "male" id="male"> male
                         </div>
                         <div>
-                            <input type="radio" name="gender" id="female"> female
+                            <input type="radio" name="gender"  value = "female" id="female"> female
                         </div>
                         <div>
-                            <input type="radio" name="gender" id="rns"> rather not say
+                            <input type="radio" name="gender"  value = "rns" id="rns"> rather not say
                         </div>
                     </div> 
 
                     <div class="grid-item">
                         <label for="email">Email:</label> <br>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" 
+                        placeholder="email@adress.com"required>
+                        
                     </div>  
 
                     <div class="grid-item">
-                        <label for="phone-number">Phone Number:</label> 
-                    <input type="text" name="phone-number" id="phone-number">  
+                        <label for="address">Address:</label> <br>
+                        <input type="text" name="address" id="address"
+                        placeholder="street, housenumber, city" >
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="country">Country:</label> <br>
+                        <input type="text" name="country" id="country" 
+                        placeholder="e.g: The Netherlands" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="ZIPcode">ZIP code:</label> <br>
+                        <input type="text" name="ZIPcode" id="ZIPcode"
+                        placeholder="e.g 1234AB" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="language">Language:</label> 
+                    <input type="text" name="language" id="language" 
+                    placeholder="e.g: English" required>  
                     </div>
 
                     <div class="grid-item">
                         <label for="password">Password:</label> 
                         <br>
-                        <input type="password" name="password" id="password">  
+                        <input type="password" name="password" id="password"
+                        placeholder="e.g: skaDooDle34" required>  
                     </div>
+
+                    <div class="grid-item">
+                        <label for="bio">About Me:</label> 
+                    <textarea type="text" name="bio" id="bio">Write something about yourself!</textarea>
+                    </div>
+
                 </div>
                     
                 <div id="submit-button">
-                        <input type="button" value="Submit!">
+                        <button type="submit">Submit</button>
                 </div>
 
                 
