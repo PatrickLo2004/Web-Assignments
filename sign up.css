@@ -46,3 +46,17 @@ body {
     margin: 5px;
 }
 
+.grid-item.succes input{
+    border-color: green;
+}
+
+.grid-item.error input{
+    border-color: red;
+}
+
+.grid-item.error input{
+    color: red;
+    font-size: 9px;
+    height: 13px;
+}
+

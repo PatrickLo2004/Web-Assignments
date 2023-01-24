@@ -10,9 +10,6 @@
 
 </head>
 <body>
-
-    <div id = "error"></div>
-
     <div id="layout">
         <div id="top-bar">
             <div id="title"><h1>Sign Up</h1></div>
@@ -30,16 +27,25 @@
         <div id="container">
             <form id="form_up" action = "/" method="GET">
                 <div id="form-grid">
+
+                    <!-- Name must contain the alphabet only.  -->
                     <div class="grid-item">
                         <label for="name">Full name:</label> <br>
                         <input type="text" name="name" id="name" 
-                        placeholder="e.g: Duncan Hill" required>
+                        placeholder="e.g: Duncan Hill" required pattern = "^[A-Za-z | ]+$"
+                        title = "Name must contain the alphabet only.">
+                        <div class = "error"></div>
                     </div>  
 
+                    <!-- User ID: required and must be of length 5 to 12, must start with
+                        a capital letter and end with a number or special character). -->
                     <div class="grid-item">
                         <label for="userID">User ID:</label> <br>
                         <input type="text" name="userID" id="userID" 
-                        placeholder="e.g Ducc321" required>  
+                        placeholder="e.g Ducc321" required pattern="^[A-Z][A-Za-z-!0-9@#$%^&*()_+]{3,10}([0-9!@#$%^&*()_+])$"
+                        title = "UserID must be of length 5 to 12, must start with
+                        a capital letter and end with a number or special character">  
+                        <div class = "error"></div>
                     </div>
 
                     <div class="grid-item">
@@ -47,57 +53,78 @@
                             <label for="gender">Gender:</label> 
                         </div>
                         <div>
-                            <input type="radio" name="gender" value = "male" id="male"> male
+                            <input type="radio" name="gender" value = "male" id="male" required> male
                         </div>
+                        <div class = "error"></div>
                         <div>
-                            <input type="radio" name="gender"  value = "female" id="female"> female
+                            <input type="radio" name="gender"  value = "female" id="female" required> female
                         </div>
+                        <div class = "error"></div>
                         <div>
-                            <input type="radio" name="gender"  value = "rns" id="rns"> rather not say
+                            <input type="radio" name="gender"  value = "rns" id="rns" required> rather not say
                         </div>
+                        <div class = "error"></div>
                     </div> 
 
+                    <!--  Email: required and must be a valid email ID   -->
                     <div class="grid-item">
                         <label for="email">Email:</label> <br>
                         <input type="email" name="email" id="email" 
-                        placeholder="email@adress.com"required>
-                        
+                        placeholder="email@adress.com" required pattern = "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$ "
+                        title = "Email must be a valid email ID of format: example@email.com">
+                        <div class = "error"></div>
                     </div>  
 
                     <div class="grid-item">
                         <label for="address">Address:</label> <br>
                         <input type="text" name="address" id="address"
                         placeholder="street, housenumber, city" >
+                        <div class = "error"></div>
                     </div>
 
                     <div class="grid-item">
                         <label for="country">Country:</label> <br>
                         <input type="text" name="country" id="country" 
                         placeholder="e.g: The Netherlands" required>
+                        <div class = "error"></div>
                     </div>
 
                     <div class="grid-item">
                         <label for="ZIPcode">ZIP code:</label> <br>
                         <input type="text" name="ZIPcode" id="ZIPcode"
-                        placeholder="e.g 1234AB" required>
+                        placeholder="e.g 1234AB" required pattern= "/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i"
+                        title = "ZipCode must be of the format 1234AB">
+                        <div class = "error"></div>
+                        <!--ZipCode: for this assignment, your javascript code must 
+                            validate the Netherlands' postal codes, which have a 
+                            6-digit structure, and consist of four numbers and two letters. -->
                     </div>
 
                     <div class="grid-item">
                         <label for="language">Language:</label> 
-                    <input type="text" name="language" id="language" 
-                    placeholder="e.g: English" required>  
+                        <input type="text" name="language" id="language" 
+                        placeholder="e.g: English" required>  
+                        <div class = "error"></div>
                     </div>
 
+                    <!--Password: required and at least 12 characters long, but 14 or more is better. 
+                        A combination of uppercase letters, lowercase letters, numbers, and symbols. -->
                     <div class="grid-item">
                         <label for="password">Password:</label> 
                         <br>
                         <input type="password" name="password" id="password"
-                        placeholder="e.g: skaDooDle34" required>  
+                        placeholder="e.g: skaDooDle34" required 
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$"
+                        title=" Password must be at least 12 characters long and contain 
+                        atleast one uppercase letter, one lowercase letters, one number, and one symbol.">  
+                        <div class = "error"></div>
                     </div>
 
                     <div class="grid-item">
                         <label for="bio">About Me:</label> 
-                    <textarea type="text" name="bio" id="bio">Write something about yourself!</textarea>
+                        <textarea type="text" name="bio" id="bio">
+                        Write something about yourself!</textarea>
+                        <div class = "error"></div>
                     </div>
 
                 </div>
