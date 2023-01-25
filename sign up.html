@@ -9,7 +9,7 @@
     <script defer src = "script.js"></script>
 
 </head>
-<body>
+<body o>
     <div id="layout">
         <div id="top-bar">
             <div id="title"><h1>Sign Up</h1></div>
@@ -31,7 +31,7 @@
                     <!-- Name must contain the alphabet only.  -->
                     <div class="grid-item">
                         <label for="name">Full name:</label> <br>
-                        <input type="text" name="name" id="name" 
+                        <input type="text" name="name" id="name" class="inputField" 
                         placeholder="e.g: Duncan Hill" required pattern = "^[A-Za-z | ]+$"
                         title = "Name must contain the alphabet only.">
                         <div class = "error"></div>
@@ -41,7 +41,7 @@
                         a capital letter and end with a number or special character). -->
                     <div class="grid-item">
                         <label for="userID">User ID:</label> <br>
-                        <input type="text" name="userID" id="userID" 
+                        <input type="text" name="userID" id="userID" class="inputField" 
                         placeholder="e.g Ducc321" required pattern="^[A-Z][A-Za-z-!0-9@#$%^&*()_+]{3,10}([0-9!@#$%^&*()_+])$"
                         title = "UserID must be of length 5 to 12, must start with
                         a capital letter and end with a number or special character">  
@@ -69,7 +69,7 @@
                     <!--  Email: required and must be a valid email ID   -->
                     <div class="grid-item">
                         <label for="email">Email:</label> <br>
-                        <input type="email" name="email" id="email" 
+                        <input type="email" name="email" id="email" class="inputField"
                         placeholder="email@adress.com" required pattern = "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$ "
                         title = "Email must be a valid email ID of format: example@email.com">
                         <div class = "error"></div>
@@ -78,20 +78,20 @@
                     <div class="grid-item">
                         <label for="address">Address:</label> <br>
                         <input type="text" name="address" id="address"
-                        placeholder="street, housenumber, city" >
+                        class="inputField" placeholder="street, housenumber, city" >
                         <div class = "error"></div>
                     </div>
 
                     <div class="grid-item">
                         <label for="country">Country:</label> <br>
-                        <input type="text" name="country" id="country" 
+                        <input type="text" name="country" id="country" class="inputField"
                         placeholder="e.g: The Netherlands" required>
                         <div class = "error"></div>
                     </div>
 
                     <div class="grid-item">
                         <label for="ZIPcode">ZIP code:</label> <br>
-                        <input type="text" name="ZIPcode" id="ZIPcode"
+                        <input type="text" name="ZIPcode" id="ZIPcode" class="inputField"
                         placeholder="e.g 1234AB" required pattern= "/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i"
                         title = "ZipCode must be of the format 1234AB">
                         <div class = "error"></div>
@@ -103,7 +103,7 @@
                     <div class="grid-item">
                         <label for="language">Language:</label> 
                         <input type="text" name="language" id="language" 
-                        placeholder="e.g: English" required>  
+                        class="inputField" placeholder="e.g: English" required>  
                         <div class = "error"></div>
                     </div> 
 
@@ -112,7 +112,7 @@
                     <div class="grid-item">
                         <label for="password">Password:</label> 
                         <br>
-                        <input type="password" name="password" id="password"
+                        <input type="password" name="password" id="password" class="inputField"
                         placeholder="e.g: skaDooDle34" required 
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$"
                         title=" Password must be at least 12 characters long and contain 
@@ -122,8 +122,7 @@
 
                     <div class="grid-item">
                         <label for="bio">About Me:</label> 
-                        <textarea type="text" name="bio" id="bio">
-                        Write something about yourself!</textarea>
+                        <textarea type="text" name="bio" id="bio" class="inputField">Write something about yourself!</textarea>
                         <div class = "error"></div>
                     </div>
 
@@ -132,9 +131,15 @@
                 <div id="submit-button">
                         <button type="submit">Submit</button>
                 </div>
-
-                
             </form>
+        </div>
+
+        <div id="tracker">
+            <p>mouse clicks:<span id="mouse-clicks">0</span></p>
+            <p>time spent on page: <span id="hours">0</span>h 
+                <span id="minutes">0</span>m <span id="seconds">0</span>s</p>
+            <p>total key presses: <span id="key-presses">0</span></p>
+            <p>total number of characters typed: <span id="char-presses">0</span></p>
         </div>
 
     </div>
