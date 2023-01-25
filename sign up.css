@@ -60,3 +60,10 @@ body {
     height: 13px;
 }
 
+#tracker {
+    border: solid 1px black;
+    width: 70%;
+    margin: auto;
+    flex-direction: column;
+    visibility: hidden;
+}
