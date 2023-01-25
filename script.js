@@ -1,73 +1,57 @@
+//START OF BEHAVIOUR TRACKER
+
+//when page is loaded the count method is called
 window.onload = count(); 
+
+//intitializing tracking variables
 let hours = 0; 
 let minutes = 0;
 let seconds = 0;
 let clicks = 0;
 let presses = 0;
 let chars = 0;
+const textAreas = document.querySelectorAll(".inputField"); //all input fields in an array
+const items = document.getElementsByClassName("item"); //all form elements in an array
 
-const textAreas = document.querySelectorAll(".inputField");
-
-const name = document.getElementById('name');
-const userID = document.getElementById('userID');
-const gender = document.getElementById('gender');
-const email = document.getElementById('email');
-const address = document.getElementById('address');
-const country = document.getElementById('country');
-const ZIPcode = document.getElementById('ZIPcode');
-const language = document.getElementById('language');
-const password = document.getElementById('password');
-const bio = document.getElementById('bio');
-const nameValue = document.getElementById('name').value.trim();
-const userIDValue = document.getElementById('userID').value.trim();
-const emailValue = document.getElementById('email').value.trim();
-const addressValue = document.getElementById('address').value.trim();
-const countryValue = document.getElementById('country').value.trim();
-const ZIPcodeValue = document.getElementById('ZIPcode').value.trim();
-const languageValue = document.getElementById('language').value.trim();
-const passwordValue = document.getElementById('password').value.trim();
-const bioValue = document.getElementById('bio').value.trim();
-
-const form = document.getElementById('form_up');
-const errorElement = document.getElementById('error');
-
-
-const gridItems = document.getElementsByClassName("grid-item");
-for(let i = 0; i < gridItems.length; i++) {
-    gridItems[i].addEventListener("keydown", () => {
+//for loop to assign an eventListener to each element of the form and update presses
+//each time a key is pressed
+for(let i = 0; i < items.length; i++) {
+    items[i].addEventListener("keydown", () => {
         presses++;
         document.getElementById("key-presses").innerHTML = presses;
     })
 }
 
-
+//when the submit button is clicked this funciton runs
 document.getElementById("submit-button").onclick = () => {
-    let chars = 0;
-    console.log(textAreas);
-    for(let aapje = 0; aapje < textAreas.length; aapje++) {
-        console.log(textAreas[aapje].textContent); 
-        chars = chars + textAreas[aapje].value.length;
-    }
+    if(tracker >= 8) {        
+        
+        let chars = 0; //the total amount of characters in the input fields is initialised 
+        
 
-    document.getElementById("char-presses").innerHTML = chars;
-    document.getElementById("tracker").style.visibility = "visible";
+        for(let i = 0; i < textAreas.length; i++) {
+            chars = chars + textAreas[i].value.length; //append the length of the te in all boxes to char
+        }
+
+        document.getElementById("char-presses").innerHTML = chars; //displaying chars in the character box
+        document.getElementById("tracker").style.visibility = "visible"; //making the behaviour box visible
+
+        alert("hello"); 
+    }
+    tracker = 0;
 };
 
 
+//for every click the click counter is updated
 document.getElementById("layout").addEventListener("click", clickInc);
 function clickInc() {  
     clicks++;
     document.getElementById("mouse-clicks").innerHTML = clicks;
-   
 }
 
-//when a character is typed call this function
-function charInc() {
-    chars++;
-    document.getElementById("char-presses").innerHTML = chars;
-}
-
+//function to start and maintain the timer
 function count() {
+      
     window.setInterval(() => {
         seconds++;
     
@@ -88,81 +72,129 @@ function count() {
     }, 1000);
  }
 
+let tracker = 0;
+
+//END OF BEHAVIOUR TRACKER
+
+const form = document.getElementById('form1')
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    checkInputs()
+})
 
-    //alle ifs moeten switch statements worden denk ik
-    const setError = (element, message) => {
-        const inputControl = element.parentElement;
-        const errorDisplay = grid-item.querySelector('.error');
-    
-        errorDisplay.innerText = message;
-        inputControl.classList.add('error');
-        inputControl.classList.remove('success');
-    }
-    
-    const setSuccess = element => {
-        const inputControl = element.parentElement;
-        const errorDisplay = grid-item.querySelector('.error');
-    
-        errorDisplay.innerText = '';
-        inputControl.classList.add('success');
-        inputControl.classList.remove('error');
-    };
+const username = document.getElementById('name')
+const userID = document.getElementById('userID')
+const gender = document.getElementById('gender')
+const email = document.getElementById('email')
+const address = document.getElementById('address')
+const country = document.getElementById('country')
+const ZIPcode = document.getElementById('ZIPcode')
+const language = document.getElementById('language')
+const password = document.getElementById('password')
+const bio = document.getElementById('bio')
 
-    //All conditions for name
-    let condition = false;
-    for(var i = 0; i<nameValue.length; i++){
-        if(!nameValue.charAt(i).matches(/^[a-zA-Z]+$/)){
-            condition = true;
-            break;
-        }
-    }
-    if(condition){
-        setError(name, 'name must contain alphabet characters only');
+function checkInputs (){
+    const nameValue = document.getElementById('name').value.trim()
+    const userIDValue = document.getElementById('userID').value.trim()
+    const genderValue = document.getElementById('gender').value.trim()
+    const emailValue = document.getElementById('email').value.trim()
+    const addressValue = document.getElementById('address').value.trim()
+    const countryValue = document.getElementById('country').value.trim()
+    const ZIPcodeValue = document.getElementById('ZIPcode').value.trim()
+    const languageValue = document.getElementById('language').value.trim()
+    const passwordValue = document.getElementById('password').value.trim()
+    const bioValue = document.getElementById('bio').value.trim()
+    
+
+
+    if(nameValue === ''){
+        setError(username, 'Full name is required');
+    }else if(/[0-9\W]/.test(nameValue)){
+        setError(username, 'Full name must contain alphabet only')
     }else{
-        setSuccess(name);
+        setSuccess(username);
     }
 
-    //All conditions for userID
-    let check = userID.charAt(0).toUpperCase();
-    if(userID.length < 5 | userID.length > 12){
+
+    let check = userIDValue.charAt(0).toUpperCase();
+    if(userIDValue === ''){
+        setError(userID, 'UserID is required');
+    }else if(userIDValue.length < 5 | userIDValue.length > 12){
         setError(userID, 'UserID must be of length 5 to 12');
-    }
-    else if(userID.charAt(0) != check){
+    }else if(userIDValue.charAt(0) != check){
         setError(userID, 'UserID must start with a capital letter');
     }
-    //^ik weet niet of [A-Za-z0-9-''/i] voor alle special characters checkt
-    else if(!userID.matches(/[0-9]/i) | !userID.matches([A-Za-z0-9-''/i])){
-        setError(userID,'UserID must contain a numerical or special character');
-    }else{
+    else{
         setSuccess(userID);
     }
 
 
-    //All conditions for password
-    if(password.length < 12){
+    if(genderValue === ''){
+        setError(gender, "Gender is required")
+    }else{
+        setSuccess(gender);
+    }
+
+    if(emailValue === ''){
+        setError(email, 'Email is required');
+    }else if(!/@/.test(emailValue)){
+        setError(email, 'Email must be a valid emailID containing @');
+    }else{
+        setSuccess(email);
+    }
+
+    if(countryValue === ''){
+        setError(country, 'Country is required');
+    }else{
+        setSuccess(country);
+    }
+
+    if(ZIPcodeValue === ''){
+        setError(ZIPcode, 'ZIPcode is required');
+    }else if(ZIPcodeValue.length != 6 || !/[0-9]/.test(ZIPcodeValue.charAt(0)) || !/[0-9]/.test(ZIPcodeValue.charAt(1)) ||
+        !/[0-9]/.test(ZIPcodeValue.charAt(2)) || !/[0-9]/.test(ZIPcodeValue.charAt(3)) || !/[A-za-z]/.test(ZIPcodeValue.charAt(4)) 
+        || !/[A-Za-z]/.test(ZIPcodeValue.charAt(5))){
+            setError(ZIPcode, 'ZIPcode must be of format 1234AB')
+    }else{
+        setSuccess(ZIPcode);
+    }
+
+    if(languageValue === ''){
+        setError(language, 'Language is required');
+    }else{
+        setSuccess(language);
+    }
+
+    if(passwordValue === ''){
+        setError(password, 'Password is required');
+    }else if(passwordValue.length < 12){
         setError(password, 'Password must be longer than 12 characters');
-    }
-
-    else if(!password.matches(/[0-9]/i)){
-        setError(password,'Password must contain a number');
-    }
-    //^ik weet niet of [A-Za-z0-9-''/i] voor alle special characters checkt
-    else if(!password.matches([A-Za-z0-9-''/i])){
-        setError(password,'Password must contain a special character');
-    }
-
-    else if(!password.Any(char.isUpper)){
+    } else if(!/[A-Z]/.test(passwordValue)){
         setError(password,'Password must contain an uppercase letter');
     }
-    else if(!password.Any(char.isLower)){
+    else if(!/[a-z]/.test(passwordValue)){
         setError(password,'Password must contain a lowercase letter');
+    }else if(!/[0-9]/.test(passwordValue)){
+        setError(password,'Password must contain a number');
+    }else if(!/[\W]/.test(passwordValue)){
+        setError(password,'Password must contain a special character');
     }else{
-        setSuccess;
+        setSuccess(password);
     }
-    
-})
+}
+
+function setError(field, message){
+    const control  = field.parentElement;
+    const error = control.querySelector('small');
+    control.className = 'item error'
+    error.innerText = message;
+}
+
+function setSuccess(element) {
+    const inputControl = element.parentElement;
+    inputControl.className = 'item success'
+    tracker++;
+};
 
 
 
